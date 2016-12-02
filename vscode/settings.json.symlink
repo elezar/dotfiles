@@ -1,0 +1,9 @@
+// TARGET=$HOME/Library/Application Support/Code/User/settings.json
+
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.rulers": [
+        80, 120
+    ],
+    "editor.renderIndentGuides": true
+}
