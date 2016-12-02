@@ -49,13 +49,24 @@ setup_gitconfig () {
   fi
 }
 
+get_target () {
+  local target=$(grep -oE "TARGET=.*$" $1)
+  if [ x"$target" != x"" ]
+  then
+    target=${target#TARGET=}
+    eval "echo $target"
+  else
+    echo "$1"
+  fi
+}
 
 link_file () {
-  local src=$1 dst=$2
-
+  local src=$1
+  local dst=$(get_target $2)
+  echo $dst
   local overwrite= backup= skip=
   local action=
-
+  
   if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
   then
 
@@ -120,8 +131,8 @@ link_file () {
 
   if [ "$skip" != "true" ]  # "false" or empty
   then
-    ln -s "$1" "$2"
-    success "linked $1 to $2"
+    ln -s "$src" "$dst"
+    success "linked $src to $dst"
   fi
 }
 
