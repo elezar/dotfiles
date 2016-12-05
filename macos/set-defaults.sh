@@ -17,7 +17,10 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 # chflags nohidden ~/Library
 
 # Set a really fast key repeat.
-# defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 0
+
+# Set the Fn keys as F1-F12
+defaults write "Apple Global Domain" "com.apple.keyboard.fnState" "1"
 
 # Show hiden files in Finder
 defaults write com.apple.finder AppleShowAllFiles --boolean TRUE
