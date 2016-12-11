@@ -1,0 +1,5 @@
+*.cache
+*.merged-ca-bundle
+*.user-ca-bundle
+*.last-run
+oscrypto-ca-bundle.crt

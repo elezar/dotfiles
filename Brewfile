@@ -5,4 +5,6 @@ cask_args appdir: '/Applications'
 tap 'caskroom/cask'
 
 cask 'iterm2'
+cask 'sublime-text' 
 
+brew 'golang'

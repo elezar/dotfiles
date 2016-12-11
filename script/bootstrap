@@ -50,19 +50,28 @@ setup_gitconfig () {
 }
 
 get_target () {
-  local target=$(grep -oE "TARGET=.*$" $1)
-  if [ x"$target" != x"" ]
+  local dotsymlink=$1
+  local default_target=$2
+
+  if [ -e $dotsymlink.properties ]
   then
-    target=${target#TARGET=}
-    eval "echo $target"
+    echo $(get_target $dotsymlink.properties $default_target) 
   else
-    echo "$1"
+    local target=$(grep -oE "TARGET=.*$" $dotsymlink)
+
+    if [ x"$target" != x"" ]
+    then
+      target=${target#TARGET=}
+      eval "echo $target"
+    else
+      echo "$default_target"
+    fi
   fi
 }
 
 link_file () {
   local src=$1
-  local dst=$(get_target $2)
+  local dst=$(get_target $1 $2)
   echo $dst
   local overwrite= backup= skip=
   local action=
