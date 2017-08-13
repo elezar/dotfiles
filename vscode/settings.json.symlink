@@ -5,5 +5,8 @@
     "editor.rulers": [
         80, 120
     ],
-    "editor.renderIndentGuides": true
+    "editor.renderIndentGuides": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "go.gopath": "/Users/elezar"
 }
